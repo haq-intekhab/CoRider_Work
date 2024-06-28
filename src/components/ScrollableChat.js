@@ -1,4 +1,5 @@
 import { Avatar, AvatarBadge } from "@chakra-ui/avatar";
+import {CheckCircleIcon} from "@chakra-ui/icons";
 import ScrollableFeed from "react-scrollable-feed";
 
 const ScrollableChat = ({ messages }) => {
@@ -48,7 +49,9 @@ const formattedDate = Array.isArray(messages) && messages.length > 0 ? formatDat
                     name={message.sender.user_id}
                     src={message.sender.image}
                   >
-                    <AvatarBadge boxSize="1.25em" bg="blue.500" />
+                    <AvatarBadge boxSize="1.25em" bg="white" >
+                      <CheckCircleIcon boxSize="1em" color="blue.600"/>
+                    </AvatarBadge>
                   </Avatar>
                 ) : (
                   <Avatar
