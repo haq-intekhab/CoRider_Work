@@ -98,12 +98,12 @@ const SingleChat = () => {
   };
 
   return (
-    <div className="w-full h-[100vh] px-4 pt-4 bg-[#0000001F]">
-      <div className="w-full flex flex-col gap-4 pb-4 border-b-2 border-slate-400">
+    <div className="w-full h-[100vh] pt-4 bg-[#FAF9F4]">
+      <div className="w-full flex flex-col px-4 gap-4 pb-4 border-b-2 border-[#dbd8d8]">
         <div className="w-full flex justify-between items-center">
           <div className="flex gap-4 items-center">
-            <FaArrowLeft className="size-[24px]" />
-            <p className="text-[24px] font-bold">{messages.name}</p>
+            <FaArrowLeft className="size-[24px] font-light" />
+            <p className="text-[24px] text-[#141E0D] font-Mulish font-bold">{messages.name}</p>
           </div>
           <FiEdit className="size-[24px]" />
         </div>
@@ -112,16 +112,12 @@ const SingleChat = () => {
             <div style={collageStyle}>
               {Array.isArray(messages.chats) && messages.chats.length > 0 ? (
                 messages.chats.map((avatar, index) => (
-                  <Avatar
-                    key={index}
-                    name={avatar.name}
-                    src={avatar.sender.image}
-                    style={{
-                      ...avatarStyle,
-                      top: `${Math.floor(index / 2) * 50}%`,
-                      left: `${(index % 2) * 50}%`,
-                    }}
-                  />
+                  <img src={avatar.sender.image} 
+                  style={{
+                        ...avatarStyle,
+                        top: `${Math.floor(index / 2) * 50}%`,
+                        left: `${(index % 2) * 50}%`,
+                      }}/>
                 ))
               ) : (
                 <div>No messages found</div>
@@ -129,37 +125,37 @@ const SingleChat = () => {
             </div>
             <div>
               <div className="flex gap-2">
-                <p className="text-[18px] text-slate-400">From</p>
-                <p className="text-[18px] text-black font-semibold">
+                <p className="text-[16px] text-[#606060] font-Mulish">From</p>
+                <p className="text-[18px] text-[#141E0D] font-Mulish font-semibold">
                   {messages.from}
                 </p>
               </div>
               <div className="flex gap-2">
-                <p className="text-[18px] text-slate-400">To</p>
-                <p className="text-[18px] text-black font-semibold">
+                <p className="text-[16px] text-[#606060] font-Mulish">To</p>
+                <p className="text-[18px] text-[#141E0D] font-Mulish font-semibold">
                   {messages.to}
                 </p>
               </div>
             </div>
           </div>
-          <BsThreeDotsVertical onClick={toggleOptions1} className="cursor-pointer" />
+          <BsThreeDotsVertical onClick={toggleOptions1} className="cursor-pointer size-[25px]" />
         </div>
         {showOptions1 && (
-          <div className="absolute top-[112px] right-4 flex flex-col bg-white shadow-md rounded">
+          <div className="absolute top-[120px] right-4 flex flex-col bg-white border border-[#E5E5E0] shadow-lg rounded-lg">
             <div className="flex gap-4 items-center py-4 px-4  hover:bg-gray-100">
               <GoPeople className="size-[25px]"/>
               <button className="block font-semibold ">
                 Members
               </button>
             </div>
-            <div className="w-full h-[1px] bg-[#E2E8F0]"></div>
+            <div className="w-full h-[1px] bg-[#E5E5E0]"></div>
             <div className="flex gap-4 items-center py-4 px-4  hover:bg-gray-100">
               <IoCallOutline className="size-[25px]"/>
               <button className="block font-semibold">
                 Share Number
               </button>
             </div>
-            <div className="w-full h-[1px] bg-[#E2E8F0]"></div>
+            <div className="w-full h-[1px] bg-[#E5E5E0]"></div>
             <div className="flex gap-4 items-center py-4 px-4  hover:bg-gray-100">
               <GoReport className="size-[26px]"/>
               <button className="block font-semibold ">
@@ -170,7 +166,7 @@ const SingleChat = () => {
         )}
       </div>
 
-      <div className="w-full flex flex-col gap-2 mt-[40px]">
+      <div className="w-full flex flex-col px-4 gap-2 mt-[40px]">
         {loading ? (
           <Spinner size="xl" w={20} h={20} alignSelf="center" margin="auto" />
         ) : (
@@ -200,7 +196,7 @@ const SingleChat = () => {
           <div className="md:w-[10%] w-[30%] flex gap-6">
             <FiPaperclip className="size-[25px] cursor-pointer" onClick={toggleOptions2} />
             {showOptions2 && (
-              <div className="absolute -top-12 right-20 flex justify-center items-center bg-green-700 rounded-full shadow-md">
+              <div className="absolute -top-12 md:right-24 right-10 flex justify-center items-center bg-[#008000] rounded-full shadow-md">
                 <button className="block  p-3 pl-4 font-semibold hover:bg-green-600 rounded-full">
                   <MdOutlineCameraAlt className="size-[20px] text-white" />
                 </button>
